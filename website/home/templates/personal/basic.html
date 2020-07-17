@@ -1,0 +1,13 @@
+{% extends "personal/header.html" %} {% block content %}
+<h1 class="w3-text-teal">Rock Paper or Scissors?</h1>
+<br>
+<h5 class="w3-text-gray">After finishing the Codeacademy course for Python, I made a text-based "Rock, Paper, Scissors" game limited to the console.
+So just for fun, I decided to incorporate an interactive version of that game here. To play, type and submit one of the following letters to battle the computer:
+        r (rock), p (paper), or s (scissors).</h5>
+<br> {{request.session.name}}
+<form action="/play" method="post" novalidate>
+    {% csrf_token %} {% include 'includes/bs4_form.html' with form=form %}
+    <input type="text" name="input">
+    <button type="submit" class="btn btn-danger">Battle</button>
+</form>
+{% endblock %}

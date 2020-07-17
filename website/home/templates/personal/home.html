@@ -1,0 +1,25 @@
+{% extends "personal/header.html" %} {% block content %}
+{% if request.user.username %}
+
+<table class="w3-table w3-striped">
+    <tr>
+      <th>Category</th>
+      <th>Info</th>
+    </tr>
+    <tr><td>Username</td><td>{{ user.username }}</td></tr>
+    <tr><td>Email</td><td>{{ user.email }}</td></tr>
+    <tr><td>First Name</td><td>{{ user.profile.first_name }}</td></tr>
+    <tr><td>Last Name</td><td>{{ user.profile.last_name }}</td></tr>
+    <tr><td>Location</td><td>{{ user.profile.location }}</td></tr>
+    <tr><td>Birthday</td><td>{{ user.profile.birth_date }}</td></tr>
+    <tr><td>Wins</td><td>{{ user.profile.wins }}</td></tr>
+    <tr><td>Loses</td><td>{{ user.profile.loses }}</td></tr>
+    <tr><td>Ties</td><td>{{ user.profile.ties }}</td></tr>
+    <tr><td>Bio</td><td>{{ user.profile.bio }}</td></tr>
+</table>
+</div>
+
+{% else %}
+<h3>You must be logged in to view your profile.</h3>
+{% endif %}
+{% include "personal/includes/htmlsnippet.html" %} {% endblock %}

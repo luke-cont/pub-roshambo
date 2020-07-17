@@ -1,0 +1,13 @@
+<link rel="stylesheet" type="text/css" href="https://bootswatch.com/3/lumen/bootstrap.min.css">
+{% extends "personal/header.html" %} {% load crispy_forms_tags %} {% block content %}
+<h1 class="w3-text-teal">Edit Profile</h1>
+<br>
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        <form method="post" novalidate>
+            {% csrf_token %} {{ form|crispy }} {{ profile_form|crispy }}
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
